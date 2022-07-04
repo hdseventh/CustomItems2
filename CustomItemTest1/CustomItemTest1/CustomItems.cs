@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Terraria;
+using Terraria.DataStructures;
 using TerrariaApi.Server;
 using TShockAPI;
 
@@ -67,7 +68,8 @@ namespace CustomItems
             List<Item> items = TShock.Utils.GetItemByIdOrName(args.Parameters[0]);
             Item item = items[0];
             TSPlayer player = new TSPlayer(args.Player.Index);
-            int itemIndex = Item.NewItem((int)player.X, (int)player.Y, item.width, item.height, item.type, item.maxStack);
+            //int itemIndex = Item.NewItem((int)player.X, (int)player.Y, item.width, item.height, item.type, item.maxStack);
+            int itemIndex = Item.NewItem(new EntitySource_DebugCommand(), (int)player.X, (int)player.Y, item.width, item.height, item.type, item.maxStack);
             Item targetItem = Main.item[itemIndex];
             targetItem.playerIndexTheItemIsReservedFor = args.Player.Index;
 
@@ -173,7 +175,7 @@ namespace CustomItems
             List<Item> items = TShock.Utils.GetItemByIdOrName(args.Parameters[1]);
             Item item = items[0];
             TSPlayer player = players[0];
-            int itemIndex = Item.NewItem((int)player.X, (int)player.Y, item.width, item.height, item.type, item.maxStack);
+            int itemIndex = Item.NewItem(new EntitySource_DebugCommand(), (int)player.X, (int)player.Y, item.width, item.height, item.type, item.maxStack);
             Item targetItem = Main.item[itemIndex];
             targetItem.playerIndexTheItemIsReservedFor = player.Index;
 
