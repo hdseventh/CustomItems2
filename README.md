@@ -1,5 +1,5 @@
 # CustomItems2
-**TShock version:** 4.4.0 pre-8
+**TShock version:** 4.5.17
 
 **API version:** 2.1
 
